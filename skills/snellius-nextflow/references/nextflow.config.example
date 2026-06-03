@@ -1,0 +1,95 @@
+// Nextflow configuration for Snellius
+// Save as: nextflow.config
+
+profiles {
+    snellius {
+        // Process configuration
+        process {
+            executor = 'slurm'
+            queue = 'thin'
+
+            // Default resource requests
+            cpus = 4
+            memory = '16 GB'
+            time = '2 h'
+
+            // Error handling - retry on transient errors
+            errorStrategy = 'retry'
+            maxRetries = 2
+
+            // Singularity configuration
+            withLabel: 'process_low' {
+                cpus = 2
+                memory = '8 GB'
+                time = '1 h'
+            }
+
+            withLabel: 'process_medium' {
+                cpus = 8
+                memory = '32 GB'
+                time = '4 h'
+            }
+
+            withLabel: 'process_high' {
+                cpus = 16
+                memory = '64 GB'
+                time = '8 h'
+            }
+
+            withLabel: 'process_gpu' {
+                queue = 'gpu'
+                cpus = 8
+                memory = '32 GB'
+                time = '4 h'
+                clusterOptions = '--gpus-per-node=1'
+            }
+        }
+
+        // Singularity configuration
+        singularity {
+            enabled = true
+            autoMounts = true
+            cacheDir = '/scratch/${System.getenv("USER")}/singularity_cache'
+            runOptions = '--bind /scratch,/data,/home'
+        }
+
+        // Disable Docker
+        docker {
+            enabled = false
+        }
+
+        // Work directory - use scratch for speed and space
+        workDir = '/scratch/${System.getenv("USER")}/nf-work'
+
+        // Output directory - use home for backed-up results
+        params {
+            outdir = '/home/${System.getenv("USER")}/results'
+        }
+    }
+
+    // GPU profile for ML/AI workloads
+    snellius_gpu {
+        includeConfig 'snellius'
+        process {
+            queue = 'gpu'
+            clusterOptions = '--partition=gpu'
+        }
+    }
+
+    // Fat profile for high-memory workloads
+    snellius_fat {
+        includeConfig 'snellius'
+        process {
+            queue = 'fat'
+            memory = '128 GB'
+            time = '12 h'
+        }
+    }
+}
+
+// Manifest
+manifest {
+    name = 'snellius-workflow'
+    author = 'Snellius User'
+    description = 'Workflow configured for Snellius HPC'
+}

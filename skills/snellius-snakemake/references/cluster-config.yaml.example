@@ -1,0 +1,55 @@
+# Snakemake SLURM cluster configuration for Snellius
+# Save as: cluster.yaml
+
+# Default configuration for most jobs
+__default__:
+  account: ""
+  partition: thin
+  nodes: 1
+  ntasks: 1
+  cpus-per-task: 4
+  mem-per-cpu: 4000
+  time: 02:00:00
+
+# High-memory jobs (fat partition)
+highmem:
+  partition: fat
+  cpus-per-task: 8
+  mem-per-cpu: 32000  # ~256 GB total
+  time: 08:00:00
+
+# GPU jobs
+gpu:
+  partition: gpu
+  gpus-per-node: 1
+  cpus-per-task: 8
+  mem-per-cpu: 4000  # ~32 GB total
+  time: 04:00:00
+
+# Multi-GPU jobs
+multi_gpu:
+  partition: gpu
+  gpus-per-node: 4
+  cpus-per-task: 16
+  mem-per-cpu: 8000  # ~128 GB total
+  time: 08:00:00
+
+# Long-running jobs
+long:
+  partition: thin
+  cpus-per-task: 4
+  mem-per-cpu: 4000
+  time: 24:00:00
+
+# Quick jobs
+quick:
+  partition: thin
+  cpus-per-task: 2
+  mem-per-cpu: 2000
+  time: 00:30:00
+
+# Resource mapping example (for use with resources directive)
+# __default__:
+#   cpus-per-task: "{resources.cpus_per_task}"
+#   mem-per-cpu: "{resources.mem_mb_per_cpu}"
+#   time: "{resources.runtime_hours}:00:00"

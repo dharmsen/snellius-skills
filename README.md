@@ -37,11 +37,13 @@ Add skills to your Claude Code installation:
 
 ```bash
 # Add all skills
-npx skill add ./snellius-skill/
+npx skill add ./snellius-skills/
 
 # Or add specific skills
-npx skill add ./snellius-skill/skills/snellius-core/
-npx skill add ./snellius-skill/skills/snellius-slurm/
+npx skill add ./snellius-skills/skills/core/snellius-core/
+npx skill add ./snellius-skills/skills/core/snellius-slurm/
+npx skill add ./snellius-skills/skills/workflow/snellius-nextflow/
+npx skill add ./snellius-skills/skills/domain-specific/snellius-ml/
 ```
 
 ### Using Symbolic Links (Development)
@@ -49,10 +51,19 @@ npx skill add ./snellius-skill/skills/snellius-slurm/
 For development or frequent updates:
 
 ```bash
-# Link to your Claude skills directory
-ln -s /home/dalton/snellius-skill/skills/snellius-core ~/.claude/skills/
-ln -s /home/dalton/snellius-skill/skills/snellius-slurm ~/.claude/skills/
-# ... etc for other skills
+# Link core skills to your Claude skills directory
+ln -s ~/snellius-skills/skills/core/snellius-core ~/.claude/skills/
+ln -s ~/snellius-skills/skills/core/snellius-slurm ~/.claude/skills/
+ln -s ~/snellius-skills/skills/core/snellius-storage ~/.claude/skills/
+ln -s ~/snellius-skills/skills/core/snellius-containers ~/.claude/skills/
+
+# Link workflow skills
+ln -s ~/snellius-skills/skills/workflow/snellius-nextflow ~/.claude/skills/
+ln -s ~/snellius-skills/skills/workflow/snellius-snakemake ~/.claude/skills/
+
+# Link domain-specific skills
+ln -s ~/snellius-skills/skills/domain-specific/snellius-ml ~/.claude/skills/
+ln -s ~/snellius-skills/skills/domain-specific/snellius-bioinformatics ~/.claude/skills/
 ```
 
 ## Quick Start
@@ -99,10 +110,23 @@ The agent will use `snellius-core`, `snellius-nextflow`, and `snellius-container
 
 ## Skill Structure
 
-Each skill follows the [science-skills](https://github.com/google-deepmind/science-skills) pattern:
+Skills are organized by category and each skill follows the [science-skills](https://github.com/google-deepmind/science-skills) pattern:
 
 ```
-skills/<skill-name>/
+skills/
+├── core/                 # Essential HPC operations
+│   ├── snellius-core/
+│   ├── snellius-slurm/
+│   ├── snellius-storage/
+│   └── snellius-containers/
+├── workflow/             # Workflow orchestration tools
+│   ├── snellius-nextflow/
+│   └── snellius-snakemake/
+└── domain-specific/      # Domain-specific optimizations
+    ├── snellius-ml/
+    └── snellius-bioinformatics/
+
+Each skill contains:
 ├── SKILL.md              # Main instruction file with YAML frontmatter
 ├── scripts/              # Helper shell scripts
 └── references/           # Additional documentation and templates

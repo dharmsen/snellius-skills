@@ -37,13 +37,13 @@ Add skills to your Claude Code installation:
 
 ```bash
 # Add all skills
-npx skill add ./snellius-skills/
+npx skills add ./snellius-skills/
 
 # Or add specific skills
-npx skill add ./snellius-skills/skills/core/snellius-core/
-npx skill add ./snellius-skills/skills/core/snellius-slurm/
-npx skill add ./snellius-skills/skills/workflow/snellius-nextflow/
-npx skill add ./snellius-skills/skills/domain-specific/snellius-ml/
+npx skills add ./snellius-skills/skills/core/snellius-core/
+npx skills add ./snellius-skills/skills/core/snellius-slurm/
+npx skills add ./snellius-skills/skills/workflow/snellius-nextflow/
+npx skills add ./snellius-skills/skills/domain-specific/snellius-ml/
 ```
 
 ### Using Symbolic Links (Development)

@@ -31,6 +31,8 @@ These skills help you interact with Snellius efficiently, covering job submissio
 
 ## Installation
 
+**New to Snellius?** Start with the [Quick Start Guide](docs/quick-start.md) for examples.
+
 ### Using Claude Code
 
 Add skills to your Claude Code installation:
@@ -67,6 +69,8 @@ ln -s ~/snellius-skills/skills/domain-specific/snellius-bioinformatics ~/.claude
 ```
 
 ## Quick Start
+
+**For detailed examples with Claude Code conversations, see the [Quick Start Guide](docs/quick-start.md).**
 
 ### 1. Connection Setup
 

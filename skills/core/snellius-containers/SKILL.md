@@ -1,7 +1,7 @@
 ---
 name: snellius-containers
-description: Apptainer/Singularity containers on Snellius - image management, bind mounts, GPU execution
-dependencies: [snellius-core]
+description: Use when running Apptainer/Singularity containers on Snellius, pulling container images, or configuring GPU containers.
+when_to_use: Container execution, GPU containers, bind mounts, container cache, environment variables in containers.
 ---
 
 # Snellius Containers (Apptainer/Singularity)

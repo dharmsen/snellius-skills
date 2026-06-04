@@ -1,7 +1,7 @@
 ---
 name: snellius-bioinformatics
-description: Bioinformatics workflows on Snellius - common tools, nf-core pipelines, sequencing data processing
-dependencies: [snellius-core, snellius-slurm, snellius-storage, snellius-containers, snellius-nextflow]
+description: Use when running bioinformatics workflows on Snellius, processing sequencing data, or using nf-core pipelines.
+when_to_use: RNA-seq, DNA-seq, ChIP-seq, variant calling, bioinformatics tools, nf-core pipelines, containerized tools.
 ---
 
 # Snellius Bioinformatics Workflows

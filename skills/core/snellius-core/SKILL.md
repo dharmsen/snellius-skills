@@ -1,6 +1,6 @@
 ---
 name: snellius-core
-description: Core reference skill for Snellius Dutch national supercomputer (SLURM, Lmod, storage, partitions, quick start)
+description: Use when connecting to Snellius, running jobs on Snellius, or need basic system reference (partitions, storage, SLURM commands, modules).
 ---
 
 # Snellius HPC Core Reference

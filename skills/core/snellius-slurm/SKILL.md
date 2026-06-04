@@ -1,7 +1,7 @@
 ---
 name: snellius-slurm
-description: SLURM job management for Snellius - job templates, monitoring, debugging, resource optimization
-dependencies: [snellius-core]
+description: Use when submitting SLURM jobs on Snellius, monitoring job status, debugging job failures, or optimizing resource requests.
+when_to_use: Submitting jobs, checking queue, job arrays, job dependencies, resource optimization, debugging failed jobs.
 ---
 
 # Snellius SLURM Job Management

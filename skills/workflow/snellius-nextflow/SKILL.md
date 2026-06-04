@@ -1,7 +1,7 @@
 ---
 name: snellius-nextflow
-description: Nextflow workflow support for Snellius - SLURM executor, Singularity containers, workDir configuration
-dependencies: [snellius-core, snellius-slurm, snellius-storage, snellius-containers]
+description: Use when running Nextflow workflows on Snellius with SLURM executor, or need Snellius-specific Nextflow configuration.
+when_to_use: Running Nextflow pipelines, nf-core workflows, SLURM integration, container configuration, workDir setup.
 ---
 
 # Snellius Nextflow Support

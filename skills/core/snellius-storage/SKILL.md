@@ -1,7 +1,7 @@
 ---
 name: snellius-storage
-description: Storage and file management for Snellius - filesystems, quotas, data lifecycle, transfer strategies
-dependencies: [snellius-core]
+description: Use when managing storage on Snellius, transferring data to/from Snellius, or need filesystem and quota information.
+when_to_use: File transfers, quota issues, storage cleanup, filesystem selection, data lifecycle management.
 ---
 
 # Snellius Storage Management

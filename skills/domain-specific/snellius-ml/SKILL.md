@@ -1,7 +1,7 @@
 ---
 name: snellius-ml
-description: ML/AI workflows on Snellius GPU partitions - PyTorch, TensorFlow, JAX, multi-GPU training
-dependencies: [snellius-core, snellius-slurm, snellius-containers]
+description: Use when running machine learning or AI workflows on Snellius GPU partitions with PyTorch, TensorFlow, or JAX.
+when_to_use: GPU training, deep learning frameworks, multi-GPU jobs, GPU job scripts, ML containers.
 ---
 
 # Snellius ML/AI Workflows

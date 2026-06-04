@@ -1,7 +1,7 @@
 ---
 name: snellius-snakemake
-description: Snakemake workflow support for Snellius - SLURM cluster config, container integration
-dependencies: [snellius-core, snellius-slurm, snellius-storage, snellius-containers]
+description: Use when running Snakemake workflows on Snellius with SLURM cluster configuration, or need Snellius-specific cluster config.
+when_to_use: Snakemake cluster execution, SLURM cluster config, container integration, resource directives.
 ---
 
 # Snellius Snakemake Support
